@@ -27,8 +27,9 @@ DOM загрузился за **1.85s**, а вот полностью тольк
 При этом мы можем использовать их не только для скриптов. Например, можно использовать их как для стилей, изображений и шрифтов и поддержка уже почти везде (opera mini и IE  - они там всегда).  
 Так же можно использовать prefetch для ресурсов с низким приоритетом, которые пригодятся позже и сохранятся в кеше.
 
-Т.е сразу можно сделать preload нужного нам шрифта. И кстати о шрифте,   
-link https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,300i,400,400i,500,500i,700,900&subset=cyrillic  
+Т.е сразу можно сделать preload нужного нам шрифта. И кстати о шрифте, 
+(при пост просмотре обнаружила, что у него в headers стоит link: <https://fonts.gstatic.com>; rel=preconnect; crossorigin)   
+https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300,300i,400,400i,500,500i,700,900&subset=cyrillic  
 Это просто какой-то гиганстский набор для первой загрузки, при этом если заглянуть внутрь, как я понимаю загружаются шрифты не только кириллические, а весь дружный набор
 (cyrillic-ext, cyrillic, greek-ext, greek, vietnamese, latin-ext, latin). А для первой отрисовки, да и вообще для всей главной страницы, нужны всего два начертания: 
 Roboto c font-weight: normal и condensed font-weight: bold для заголовков на карточках. Т.е просто сокращаем link наши шрифты rel="preload" as="font" type="crossorigin";
